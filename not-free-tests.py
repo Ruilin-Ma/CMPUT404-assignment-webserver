@@ -84,9 +84,7 @@ class TestYourWebserver(unittest.TestCase):
         url = self.baseurl + "/deep"
         expected_url = self.baseurl + "/deep/"
         try:
-            # print ("url is : ", url)
             req = request.urlopen(url, None, 3)
-            # print ("req is: ", req)
             code = req.getcode() 
             if code >= 200 and code <= 299 and req.geturl() == expected_url:
                 self.assertTrue(True, "The library has redirected for us")
@@ -94,7 +92,6 @@ class TestYourWebserver(unittest.TestCase):
                 self.assertTrue(False, "The URL hasn't changed %s %s" % (code,req.geturl()))
         except request.HTTPError as e:
             code = e.getcode() 
-            # print("code is: ", code)
             self.assertTrue( code >= 300 and code < 400, "300ish Not FOUND! %s" % code)
 
     def test_html(self):
@@ -112,9 +109,6 @@ class TestYourWebserver(unittest.TestCase):
         url = self.baseurl + "/hardcode/"
         req = request.urlopen(url, None, 3)
         self.assertTrue( req.getcode()  == 200 , "200 OK Not FOUND! Hardcoding? /hardcode/")
-        # print("url is: ", url)
-        # print("req is : ", req)
-        # print("content type is :",req.info().get_content_type())
         self.assertTrue( req.info().get_content_type() == "text/html", ("Bad mimetype for html! %s" % req.info().get_content_type()))
 
     def test_hardcode2(self):
