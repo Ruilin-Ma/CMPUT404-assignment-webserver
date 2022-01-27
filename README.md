@@ -24,3 +24,5 @@ examples thus some of the code is Copyright © 2001-2013 Python
 Software Foundation; All Rights Reserved under the PSF license (GPL
 compatible) http://docs.python.org/2/library/socketserver.html
 
+External methods on line 52 and line 64 (isdir/isfile) were learned from 
+#https://www.w3resource.com/python-exercises/python-basic-exercise-85.php
